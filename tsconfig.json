@@ -19,6 +19,8 @@
 
       "@styles/*": ["./src/styles/*"],
 
+      "@helpers": ["src/core/helpers/index"],
+      "@configs": ["./src/core/configs/index"],
       "@containers": ["./src/core/containers/index"],
 
       "@geo": ["./src/core/services/geo/index"],
