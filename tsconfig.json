@@ -15,9 +15,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@lumberyard/lumby": ["./lumby/index"]
+      "@ui": ["./ui/index"],
+      "@styles/*": ["./src/styles/*"],
+      "@storage": ["./src/core/services/storage/index"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./storybook"]
 }
