@@ -1,6 +1,6 @@
-import { GlobalStyles } from "twin.macro";
+import '../styles/globals.css';
 
-import "../styles/globals.css";
+import { GlobalStyles } from 'twin.macro';
 
 function App({ children }) {
   return (
