@@ -1,12 +1,14 @@
-import '@styles/globals.css';
-
 import { GlobalStyles } from 'twin.macro';
 
+import '@styles/globals.css';
+
+import { Position } from '@containers';
+
 const App = ({ children }) => (
-  <div>
+  <Position>
     <GlobalStyles />
     {children}
-  </div>
+  </Position>
 );
 
 const Render = ({ Component, pageProps }) => (

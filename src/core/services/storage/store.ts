@@ -1,18 +1,18 @@
 import { proxy, useSnapshot } from 'valtio';
 
-const extendState = <T = unknown>(data: T): IState<T> => ({
+const stateStatus = <T = unknown>(data: T): IState<T> => ({
   data,
   status: { type: 'idle' },
 });
 
-const state = extendState({ position: undefined });
+const geoState = stateStatus<IGeo>({ position: null });
 
 const store = {
-  state: proxy(state),
+  geo: proxy(geoState),
 };
 
 type S = typeof store;
-type State = (data: S['state']['data']) => void;
+type Geo = (data: S['geo']['data']) => void;
 
 const operator = {
   get: store as S,
@@ -20,7 +20,7 @@ const operator = {
     status: (key: keyof S, type: IStatus['type'], msg?: IStatus['msg']) => {
       store[key].status = { type, msg };
     },
-    state: (update: State) => update(store.state.data),
+    geo: (update: Geo) => update(store.geo.data),
   },
 
   use: useSnapshot,
