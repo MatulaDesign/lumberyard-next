@@ -34,21 +34,6 @@ const operator = {
         store.set.status('user', 'error', error);
       });
   },
-  signout: () => {
-    store.set.status('user', 'loading');
-    remote.firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        store.set.user((data) => {
-          data.profile = null;
-        });
-        store.set.status('user', 'success');
-      })
-      .catch((error) => {
-        store.set.status('user', 'error', error);
-      });
-  },
   reset: (email: string) => {
     remote.firebase
       .auth()

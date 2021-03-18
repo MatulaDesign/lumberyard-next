@@ -1,3 +1,4 @@
+import { devtools } from 'valtio/utils';
 import { proxy, useSnapshot } from 'valtio';
 
 const stateStatus = <T = unknown>(data: T): IState<T> => ({
@@ -14,6 +15,7 @@ const store = {
   user: proxy(userState),
   visitor: proxy(visitorState),
 };
+devtools(proxy(store), 'store');
 
 type S = typeof store;
 type Geo = (data: S['geo']['data']) => void;
