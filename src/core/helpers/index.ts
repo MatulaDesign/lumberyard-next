@@ -1,1 +1,1 @@
-export { default as prepareCertificate } from './prepare-certificate';
+export { default as certificate } from './prepare-certificate';

@@ -7,17 +7,31 @@ type IState<T = unknown> = { data: T; status: IStatus };
 type IGeo = {
   position: GeolocationPosition | null;
 };
-type IUserCertificate = {
+
+interface IVisitorCert {
   uid: string;
+  uuid: string;
   email: string | null;
+  position?: IGeo['position'];
+}
+interface IUserCert extends IVisitorCert {
   photoURL: string | null;
   isAnonymous: boolean;
-  phoneNumber: string | null;
   displayName: string | null;
   emailVerified: boolean;
   refreshToken: string;
-} | null;
+}
+
 type IVisitor = Partial<{
   isSeen: boolean;
-  persona: IUserCertificate;
+  persona: IVisitorCert;
 }>;
+
+type IUser = Partial<{
+  profile: IUserCert | null;
+}>;
+
+type ICreds = {
+  email: string;
+  password: string;
+};

@@ -7,14 +7,16 @@ import 'firebase/auth';
 import '@styles/globals.css';
 
 import { remote } from '@storage';
-import { Position, Visitor } from '@containers';
+import { Position, Visitor, Persona } from '@containers';
 
 const Structure = ({ children }) => (
   <FuegoProvider fuego={remote.firebase}>
     <Position>
       <Visitor>
-        <GlobalStyles />
-        {children}
+        <Persona>
+          <GlobalStyles />
+          {children}
+        </Persona>
       </Visitor>
     </Position>
   </FuegoProvider>

@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 
-const Firebase = {
+const FirebaseInitialConfig = {
   apiKey: 'AIzaSyDUhxFOLlrP5hROuOgZvvFHDB6Dus7q6tc',
   authDomain: 'equiterra-core.firebaseapp.com',
   projectId: 'equiterra-core',
@@ -12,14 +12,14 @@ const Firebase = {
 
 type Config = Parameters<typeof firebase.initializeApp>[0];
 
-export default class FirebaseConnector {
+export default class FirebaseConfig {
   public db: ReturnType<firebase.app.App['firestore']>;
   public auth: typeof firebase.auth;
   public functions: typeof firebase.functions;
   public storage: typeof firebase.storage;
   public api: typeof firebase;
 
-  constructor(config: Config = Firebase) {
+  constructor(config: Config = FirebaseInitialConfig) {
     this.db = !firebase.apps.length
       ? firebase.initializeApp(config).firestore()
       : firebase.app().firestore();
